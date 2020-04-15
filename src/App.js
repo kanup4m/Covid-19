@@ -7,13 +7,14 @@ import {
 } from "react-router-dom";
 import Home from './Pages/Home';
 import Visual from './components/Visualize';
-
+import Skeleton from './components/Sketeton'
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" component={Visual} />
+          <Route path="/" exact component={Visual} />
+          <Route path="/india" component={Home} />
         </Switch>
       </Router>
     </div>

@@ -901,7 +901,7 @@ const Chart = () => {
     return (
         <div>
             <LineChart
-                width={900}
+                width={300}
                 height={300}
                 data={data}
                 margin={{

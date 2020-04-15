@@ -1,6 +1,6 @@
 @import '~antd/dist/antd.css';
 html {
-    font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
     line-height: 1.5;
 }
 body {
@@ -194,7 +194,7 @@ tbody {
 }
  
 .overview::-webkit-scrollbar-thumb {
-  background-color: red;
+  background-color: #ff7675;
   outline: 1px solid slategrey;
 }
 .newsCard {
@@ -216,3 +216,37 @@ rect {
     width: 100vw;
     height: 100vh ;
 }
+.confirmed {
+    font-size: 32px;
+    color: #DE3700;
+    font-weight: bold;
+    line-height: 40px;
+    text-align: left;
+}
+.legend .color {
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+}
+.legend .description {
+    font-weight: 600;
+}
+.legend .total {
+    color: #767676;
+    display: flex;
+    align-items: center;
+}
+.tab {
+    width: 320px;
+    padding: 24px 24px 0 24px;
+    box-sizing: border-box;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.05);
+    z-index: 201;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+}
+nav ul{height:100vh;}
+nav ul{overflow:hidden; overflow-y:scroll;}
