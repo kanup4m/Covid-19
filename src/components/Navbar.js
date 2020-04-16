@@ -10,7 +10,7 @@ const Navbar = () => {
         <div>
             <nav>
                 <ul className="navbar-item">
-                    <List>
+                    {/* <List>
                         <Link to="/" activeClassName="active-nav">
                             corona-tracker
                         </Link>
@@ -23,7 +23,7 @@ const Navbar = () => {
                     </List>
                     <List>
                         <Link to="/faq">faq</Link>
-                    </List>
+                    </List> */}
                 </ul>
             </nav>
         </div>

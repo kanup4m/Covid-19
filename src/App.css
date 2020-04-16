@@ -98,17 +98,22 @@ tbody {
 .card-active {
     text-align: center;
     color: #718096;
+    padding-top: 10px;
     background-color: #2d3748;
     border-radius: .25rem;
 }
 .card-confirm {
     text-align: center;
+    padding-top: 10px;
     background-color: #a0aec0;
     color: #4a5568;
     border-radius: .25rem;
+    height: 150px;
 }
 .card-critical {
     text-align: center;
+    padding-top: 10px;
+
         color: #c05621;
     background-color: #ed8936;
     border-radius: .25rem;
@@ -116,11 +121,15 @@ tbody {
 .card-death {
     text-align: center;
         color: #c53030;
+    padding-top: 10px;
+
     background-color: #f56565;
     border-radius: .25rem;
 }
 .card-recover {
     text-align: center;
+    padding-top: 10px;
+
     color: #276749;
     background-color: #48bb78;
     border-radius: .25rem;
@@ -248,5 +257,15 @@ rect {
     flex-direction: column;
     max-height: 100%;
 }
-nav ul{height:100vh;}
-nav ul{overflow:hidden; overflow-y:scroll;}
+.country-list{height:50vh;}
+.country-list{overflow:hidden; overflow-y:scroll;}
+
+
+.my-list {
+    border:0;
+    border-radius: 25%;
+    -webkit-border-radius: 25%;
+    -moz-border-radius: 25%;
+    -ms-border-radius: 25%;
+    -o-border-radius: 25%;
+}

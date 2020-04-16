@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TextLoop from 'react-text-loop';
 import Layout from '../components/Layout';
-import { Card } from 'antd';
 import styled from 'styled-components'
 import axios from 'axios'
 import Active from '../images/active.js'
@@ -12,20 +11,16 @@ import ReactTooltip from "react-tooltip";
 import Recovered from '../images/recovered.js'
 import Map from '../components/Map'
 import Table from '../components/Table';
-import Chart from '../components/Chart';
-const MainDiv = styled.div`
-    text-align:center;
-    background-color:#4a5568;
-    color:white;
-    padding:1px;
-`
+import { Card, WingBlank, WhiteSpace, NavBar, Icon } from 'antd-mobile';
+import 'antd-mobile/dist/antd-mobile.css'
+import Loader from '../components/PreLoader'
 const Home = () => {
     const [death, setDeath] = useState(0)
     const [confirmed, setConfirmed] = useState(0)
     const [recovered, setRecovered] = useState(0)
     const [active, setActive] = useState(0)
     const [newDeath, setNewDeath] = useState(0)
-
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         axios.get('https://corona-api.com/timeline')
@@ -37,6 +32,7 @@ const Home = () => {
                 setConfirmed(data[0].confirmed)
                 setRecovered(data[0].recovered)
                 setNewDeath(data[0].new_deaths)
+                setLoading(false)
             })
             .catch(function (error) {
                 console.log(error);
@@ -45,61 +41,46 @@ const Home = () => {
     })
     return (
         <div>
-            <div>
-                <Layout>
-                    <div className="div2">
-                        <TextLoop mask>
-                            <div>Don't hoard groceries and essentials. Please ensure that people who are in need don't face a shortage because of you!  </div>
-                            <div>Be compassionate! Help those in need like the elderly and poor. They are facing a crisis which we can't even imagine!
-</div>
-                            <div>Lockdown means LOCKDOWN! Avoid going out unless absolutely necessary. Stay safe!
-</div>
-                            <div>Stay Home Stay Healthy</div>
-                        </TextLoop>
+            <NavBar
+                mode="light"
+               
+
+            >COVID-19 Tracker</NavBar>
+            <WingBlank size="lg">
+                <WhiteSpace size="lg" />
+                {loading === true ? <Loader /> : <div>
+                    <div className="card-active">
+                        <Active />
+                        <div> Active <br /> <div style={{ color: "white", fontSize: "30px" }}>{active}</div></div>
                     </div>
+                    <WhiteSpace size="lg" />
 
-
-                    <h1 style={{ textAlign: "center" }}>COVID-19 TRACKER</h1>
-                    {/* <div className="div-group">
-                    <h2 className="confirmed">Confirmed <br /><br /> 100</h2>
-                    <h2 className="active">Active <br /> <br />100</h2>
-                    <h2 className="recovered">Recovered <br /><br /> 100</h2>
-                    <h2 className="deceased">Deceased <br /> <br />100</h2>
-                </div> */}
-                    <div style={{ paddingLeft: "15%", paddingRight: "15%" }}>
-                        <MainDiv><br />Confirmed countries in total <br /> <h1 style={{ color: "white" }}>183 <small>(93.85)</small> / 195</h1></MainDiv>
-                        <div className="list-grid">
-                            <Card style={{ width: 170 }} className="card-active">
-                                <Active />
-                                <div> Active <br /> <div style={{ color: "white", fontSize: "30px" }}>{active}</div></div>
-                            </Card>
-                            <Card style={{ width: 170 }} className="card-confirm">
-                                <Confirmed />
-                                <div>Confirmed <br /> <div style={{ color: "white", fontSize: "30px" }}>{confirmed}</div></div>
-                            </Card>
-                            <Card style={{ width: 170 }} className="card-recover">
-                                <Recovered />
-                                <div>Recovered <br /> <div style={{ color: "white", fontSize: "30px" }}>{recovered}</div></div>
-                            </Card>
-                            <Card style={{ width: 170 }} className="card-critical">
-                                <Critical />
-                                <div>New Deaths <br /> <div style={{ color: "white", fontSize: "30px" }}>{newDeath}</div></div>
-                            </Card>
-                            <Card style={{ width: 170 }} className="card-death">
-                                <Deaths />
-                                <div>Deaths <br /> <div style={{ color: "white", fontSize: "30px" }}>{death}</div></div>
-                            </Card>
-                        </div>
-                        <Chart />
-                        <div >
-                            <Table />
-
-                        </div>
-                        <Map />
+                    <div className="card-confirm">
+                        <Confirmed />
+                        <div>Confirmed <br /> <div style={{ color: "white", fontSize: "30px" }}>{confirmed}</div></div>
                     </div>
-                </Layout>
+                    <WhiteSpace size="lg" />
 
-            </div >
+                    <div className="card-recover">
+                        <Recovered />
+                        <div>Recovered <br /> <div style={{ color: "white", fontSize: "30px" }}>{recovered}</div></div>
+                    </div>
+                    <WhiteSpace size="lg" />
+
+                    <div className="card-critical">
+                        <Critical />
+                        <div>New Deaths <br /> <div style={{ color: "white", fontSize: "30px" }}>{newDeath}</div></div>
+                    </div>
+                    <WhiteSpace size="lg" />
+
+                    <div className="card-death">
+                        <Deaths />
+                        <div>Deaths <br /> <div style={{ color: "white", fontSize: "30px" }}>{death}</div></div>
+                    </div>
+                    <WhiteSpace size="lg" />
+                    <Table />
+                </div>}
+            </WingBlank>
         </div>
     );
 }
