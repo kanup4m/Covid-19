@@ -5,7 +5,12 @@ import Sidebar from './Sidebar';
 import SimpleMap from './SimpleMap'
 import { Link } from 'react-router-dom'
 import Skeleton from './Sketeton'
+import { List, WhiteSpace } from 'antd-mobile';
+
 import axios from 'axios'
+import CountryList from './CountryList';
+const Item = List.Item;
+
 const geoUrl =
     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
@@ -40,16 +45,13 @@ const Visual = () => {
         <Layout style={{ height: "100vh" }}>
             <Header className="header">
                 <div className="logo" />
-                <Menu theme="dark" mode="horizontal" >
-                    <Menu.Item key="1">COVID-19 Tracker</Menu.Item>
-                    <Menu.Item ><Link to="/india">India Stats</Link></Menu.Item>
-                    <Menu.Item>Help</Menu.Item>
+                <Menu mode="horizontal" className="navbar-color" >
+                    <Menu.Item key="1" style={{ fontSize: "20px", fontWeight: "bold" }}>COVID-19 Tracker</Menu.Item>
                 </Menu>
             </Header>
             <Layout>
                 <Sider width={300} className="site-layout-background tab">
-                    <br />
-                    <h1>Total Confirmed Cases</h1>
+                    <h3>Total Confirmed Cases</h3>
                     <h1 className="confirmed">{confirmed}</h1>
                     <h2 className="legend">
                         <div className="color" style={{ background: 'rgb(244, 195, 99)' }} />
@@ -74,36 +76,9 @@ const Visual = () => {
                     <div className="sidebar">
                         <div className="sidebar-fixed">
 
-                            <div id="unitedstates" className="area ">
-                                <div className="areaName" title="United States">United States</div>
-                                <div className="areaTotal">
-                                    <div className="secondaryInfo">400,788</div>
-                                </div>
-                            </div>
-                            <div id="unitedstates" className="area ">
-                                <div className="areaName" title="United States">United States</div>
-                                <div className="areaTotal">
-                                    <div className="secondaryInfo">400,788</div>
-                                </div>
-                            </div>
-                            <div id="unitedstates" className="area ">
-                                <div className="areaName" title="United States">United States</div>
-                                <div className="areaTotal">
-                                    <div className="secondaryInfo">400,788</div>
-                                </div>
-                            </div>
-                            <div id="unitedstates" className="area ">
-                                <div className="areaName" title="United States">United States</div>
-                                <div className="areaTotal">
-                                    <div className="secondaryInfo">400,788</div>
-                                </div>
-                            </div>
-                            <div id="unitedstates" className="area ">
-                                <div className="areaName" title="United States">United States</div>
-                                <div className="areaTotal">
-                                    <div className="secondaryInfo">400,788</div>
-                                </div>
-                            </div>
+                            <CountryList />
+
+
 
 
 

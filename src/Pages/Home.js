@@ -43,9 +43,10 @@ const Home = () => {
         <div>
             <NavBar
                 mode="light"
-               
+                rightContent={<span>FAQ</span>}
 
             >COVID-19 Tracker</NavBar>
+
             <WingBlank size="lg">
                 <WhiteSpace size="lg" />
                 {loading === true ? <Loader /> : <div>

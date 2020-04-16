@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 const Item = List.Item;
 
-const Table = () => {
+const CountryList = () => {
     const [data, setData] = useState([])
     useEffect(() => {
         axios.get('https://corona-api.com/countries')
@@ -26,16 +26,24 @@ const Table = () => {
 
     return (
         <div>
-            <List className="my-list" style={{ color: "#4a5568", fontWeight: "bold" }}>
-                <Item extra={'Confirmed'}>Country</Item>
-            </List>
-            <div className="country-list">
+            <div id="unitedstates" className="area" style={{ color: "#4a5568", fontWeight: "bold" }}>
+                <div className="areaName" >Country</div>
+                <div className="areaTotal">
+                    <div className="secondaryInfo">Deaths</div>
+                </div>
+            </div>
+            <div className="country-list2">
                 {data.map(country => (
                     <>
-                        <List className="my-list">
+                        {/* <List className="my-list">
                             <Link to={`/countries/${country.code}`}><Item extra={<span style={{ color: "#4a5568", fontWeight: "bold" }}>{country.latest_data.confirmed}</span>} ><span style={{ color: "#667eea" }}>{country.name}</span></Item></Link>
-                        </List>
-                        <WhiteSpace size="lg" />
+                        </List> */}
+                        <div id="unitedstates" className="area">
+                            <div className="areaName" title={country.name} style={{ color: "#667eea" }}>{country.name}</div>
+                            <div className="areaTotal">
+                                <div className="secondaryInfo" style={{ color: "#4a5568", fontWeight: "bold" }}>{country.latest_data.confirmed}</div>
+                            </div>
+                        </div>
                     </>
                 ))}
             </div>
@@ -44,4 +52,4 @@ const Table = () => {
     );
 }
 
-export default Table;
+export default CountryList;

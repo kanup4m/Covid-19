@@ -20,6 +20,15 @@ body {
     background-color:#f6f6f7;
     color: rgba(108,117,125,.6);
 }
+.ant-layout-header {
+     background-color:rgba(247, 247, 247, 0.8) !important;
+     border-bottom: 1px solid #ddd;
+
+}
+.navbar-color {
+     background-color:rgba(247, 247, 247, 0.8) !important;
+
+}
 .active-nav {
     color:red
 }
@@ -239,6 +248,8 @@ rect {
 }
 .legend .description {
     font-weight: 600;
+    font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
 }
 .legend .total {
     color: #767676;
@@ -259,7 +270,8 @@ rect {
 }
 .country-list{height:50vh;}
 .country-list{overflow:hidden; overflow-y:scroll;}
-
+.country-list2{height:50vh;}
+.country-list2{overflow:hidden; overflow-y:scroll;}
 
 .my-list {
     border:0;
@@ -268,4 +280,7 @@ rect {
     -moz-border-radius: 25%;
     -ms-border-radius: 25%;
     -o-border-radius: 25%;
+}
+.textLoop {
+    text-align: center;
 }
