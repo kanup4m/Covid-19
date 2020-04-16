@@ -6,7 +6,7 @@ import SimpleMap from './SimpleMap'
 import { Link } from 'react-router-dom'
 import Skeleton from './Sketeton'
 import { List, WhiteSpace } from 'antd-mobile';
-
+import virus from '../images/virus.png'
 import axios from 'axios'
 import CountryList from './CountryList';
 const Item = List.Item;
@@ -46,6 +46,7 @@ const Visual = () => {
             <Header className="header">
                 <div className="logo" />
                 <Menu mode="horizontal" className="navbar-color" >
+                    <Menu.Item key="1" style={{ fontSize: "20px", fontWeight: "bold" }}><img src={virus} /></Menu.Item>
                     <Menu.Item key="1" style={{ fontSize: "20px", fontWeight: "bold" }}>COVID-19 Tracker</Menu.Item>
                 </Menu>
             </Header>
